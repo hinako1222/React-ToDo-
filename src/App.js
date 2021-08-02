@@ -1,10 +1,17 @@
 import './App.css';
 import Todo from "./components/Todo";
 function App(props) {
+  const taskList = props.tasks.map(task => (
+    <Todo id={task.idt}
+    name={task.name}
+    completed={task.completed}
+    key={task.id}
+    />
+  ));
   return (
     <div className="toodoapp stack-large">
       <h1>TodoMatic</h1>
-      <from>
+      <form>
         <h2 className="label-wrapper">
           <label htmlFor="new-todo-input" className="label__lg">
             What needs to be done?
@@ -20,7 +27,7 @@ function App(props) {
           <button type="submit" className="btn btn__primary btn__lg">
             Add
           </button>
-      </from>
+      </form>
       <div className="filters btn-group stack-exception">
         <button type="button" className="btn toggle-btn" aria-pressed="true">
           <span className="visually-hidden">Show</span>
@@ -44,13 +51,11 @@ function App(props) {
        3 tasks remainning
      </h2>
      <ul
-     role="list"
-     className="todo-list stack-large stack-exception"
-     aria-labelledby="list-heading"
+      role="list"
+      className="todo-list stack-large stack-exceptoon"
+      aria-labelledby="list-heading"
      >
-      <Todo name="Eat" completed={true} />
-      <Todo name="Sleep" completed={false} />
-      <Todo name="Repeat" completed={false} />
+       {taskList}
        </ul>
     </div>
   );
