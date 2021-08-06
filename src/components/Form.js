@@ -19,5 +19,7 @@ function Form(props){
             Add
           </button>
         </form>
-    )
+    );
 }
+
+　export default Form;
