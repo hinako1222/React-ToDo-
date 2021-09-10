@@ -1,14 +1,16 @@
 import React,{ useState } from "react";
 
 function Form(props){
-  const [name,setName] = useState('');
-  function handleSubmit(e) {
-    e.preventDefault();
-    props.addTask(name);
-    setName("");
-  }
+  const [name,setName] = useState("");
+
   function handleChange(e){
     setName(e.target.value);
+    }
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      props.addTask(name);
+      setName("");
     }
     return(
         <form onSubmit={handleSubmit}>
@@ -17,7 +19,6 @@ function Form(props){
             What needs to be done?
           </label>
         </h2>
-        <p>{name}</p>
           <input
           type="text"
           id="new-todo-input"
